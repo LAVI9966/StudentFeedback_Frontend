@@ -27,7 +27,7 @@ const SubmitRatingPage = () => {
   useEffect(() => {
     const fetchname = async () => {
       const c = await axios.get(
-        `${window.location.origin}0/fetchcoursename/${courseId}`
+        `https://studentfeedback-backend.onrender.com/fetchcoursename/${courseId}`
       );
       const course = c.data;
       setcoursename(course);
@@ -74,7 +74,7 @@ const SubmitRatingPage = () => {
     console.log("data ", data);
     try {
       const response = await axios.post(
-        `${window.location.origin}/submitcourserating`,
+        `https://studentfeedback-backend.onrender.com/submitcourserating`,
         data
       );
       console.log(response);
@@ -107,7 +107,13 @@ const SubmitRatingPage = () => {
     }
     console.log(ratings);
   };
-
+  const realq = [
+    "How would you rate the course content?",
+    "How would you rate the difficulty of the course?",
+    "How would you rate the workload of the course?",
+    "How would you rate the overall course experience?",
+    "How would you rate the course's relevance to your field of study?",
+  ];
   return (
     <>
       <Container>
@@ -119,15 +125,15 @@ const SubmitRatingPage = () => {
               </h2>
               <form onSubmit={handleSubmit}>
                 {[
-                  "How would you rate the course content?",
-                  "How would you rate the difficulty of the course?",
-                  "How would you rate the workload of the course?",
-                  "How would you rate the overall course experience?",
-                  "How would you rate the course's relevance to your field of study?",
-                ].map((question) => (
+                  "question1",
+                  "question2",
+                  "question3",
+                  "question4",
+                  "question5",
+                ].map((question, i) => (
                   <>
                     <div key={question} className="mb-3">
-                      <label className="form-label">{question}</label>
+                      <label className="form-label">{realq[i]}</label>
                       <select
                         className="form-select bg-secondary"
                         id={question}

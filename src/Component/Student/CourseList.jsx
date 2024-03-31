@@ -28,7 +28,7 @@ const CourseList = () => {
   useEffect(() => {
     const fetch = async () => {
       const responce = await axios.post(
-        `${window.location.origin}/fetchcourse`,
+        `https://studentfeedback-backend.onrender.com/fetchcourse`,
         studentdata
       );
       setcourselist(responce.data);

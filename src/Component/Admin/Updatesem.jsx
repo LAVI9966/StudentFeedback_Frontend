@@ -20,7 +20,7 @@ const UpdateSemester = () => {
     console.log(bothsem);
     try {
       const response = await axios.post(
-        `${window.location.origin}/updatesem`,
+        `https://studentfeedback-backend.onrender.com/updatesem`,
         bothsem,
         {
           headers: {

@@ -16,7 +16,7 @@ const FacultyList = () => {
   useEffect(() => {
     const fetch = async () => {
       const responce = await axios.post(
-        `${window.location.origin}/fetchfaculty`,
+        `https://studentfeedback-backend.onrender.com/fetchfaculty`,
         courseId
       );
       setFacultylist(responce.data);

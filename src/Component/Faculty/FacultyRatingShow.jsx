@@ -28,7 +28,7 @@ const FacultyRatingshow = () => {
   useEffect(() => {
     const fetch = async () => {
       const fetchedrating = await axios.get(
-        `${window.location.origin}/fetchfacultyratings/${facultyId}`
+        `https://studentfeedback-backend.onrender.com/fetchfacultyratings/${facultyId}`
       );
       console.log("hello fy", fetchedrating.data[0].ratings);
       setratinglist(fetchedrating.data[0].ratings);

@@ -40,7 +40,7 @@ const AddheadFaculty = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `${window.location.origin}/addheadfaculty`,
+        `https://studentfeedback-backend.onrender.com/addheadfaculty`,
         formData,
         {
           headers: {

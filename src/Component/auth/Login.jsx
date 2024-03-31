@@ -35,7 +35,7 @@ const Login = () => {
     console.log(formData);
     try {
       const response = await axios.post(
-        `${window.location.origin}/login`,
+        `https://studentfeedback-backend.onrender.com/login`,
         formData
       );
       localStorage.setItem("authToken", response.data.token);

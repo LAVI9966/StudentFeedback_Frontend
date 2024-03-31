@@ -45,7 +45,7 @@ const Signup = () => {
     if (formData.role === "student") {
       try {
         const response = await axios.post(
-          `${window.location.origin}/signup`,
+          `https://studentfeedback-backend.onrender.com/signup`,
           formData
         );
         // Example of storing the JWT token in local storage
@@ -80,7 +80,7 @@ const Signup = () => {
           password: formData.password,
         };
         const response = await axios.post(
-          `${window.location.origin}/signup`,
+          `https://studentfeedback-backend.onrender.com/signup`,
           datatosend
         );
         toast("Yessss! You are Registered");

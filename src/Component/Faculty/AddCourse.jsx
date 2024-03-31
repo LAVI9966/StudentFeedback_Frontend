@@ -35,7 +35,7 @@ const AddCourse = ({ facultyid }) => {
       const token = localStorage.getItem("authToken");
       console.log(coursedata);
       const response = await axios.post(
-        `${window.location.origin}/addcourse`,
+        `https://studentfeedback-backend.onrender.com/addcourse`,
         coursedata,
         {
           headers: {

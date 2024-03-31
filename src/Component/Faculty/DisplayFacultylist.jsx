@@ -12,7 +12,9 @@ const DisplayFacultyList = ({ _id }) => {
   const handleDelete = async (facultyId) => {
     console.log("hd me se ", facultyId);
     try {
-      await axios.delete(`http://localhost:8080/deletefaculty/${facultyId}`);
+      await axios.delete(
+        `https://studentfeedback-backend.onrender.com/deletefaculty/${facultyId}`
+      );
       toast.success("Faculty member deleted successfully!", {
         position: "top-right",
         autoClose: 5000,
@@ -42,7 +44,7 @@ const DisplayFacultyList = ({ _id }) => {
     const fetchFaculty = async () => {
       try {
         const response = await axios.get(
-          `${window.location.origin}/fetchfaculty/${_id}`
+          `https://studentfeedback-backend.onrender.com/fetchfaculty/${_id}`
         );
         setFacultyList(response.data);
       } catch (error) {

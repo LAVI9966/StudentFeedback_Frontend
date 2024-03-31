@@ -10,7 +10,9 @@ const DisplayCourseList = ({ facultyid }) => {
 
   const handleDelete = async (courseId) => {
     try {
-      await axios.delete(`http://localhost:8080/deletecourse/${courseId}`);
+      await axios.delete(
+        `https://studentfeedback-backend.onrender.com/deletecourse/${courseId}`
+      );
       toast.success("Course deleted successfully!", {
         position: "top-right",
         autoClose: 5000,
@@ -41,7 +43,7 @@ const DisplayCourseList = ({ facultyid }) => {
     const fetch = async () => {
       try {
         const response = await axios.get(
-          `${window.location.origin}/fetchcourse/${facultyid}`
+          `https://studentfeedback-backend.onrender.com/fetchcourse/${facultyid}`
         );
         setfetchedcourse(response.data);
         console.log("display course list:", response.data);

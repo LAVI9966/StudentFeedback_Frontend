@@ -30,7 +30,7 @@ const AddFaculty = ({ _id }) => {
     try {
       const token = localStorage.getItem("authToken");
       const response = await axios.post(
-        `${window.location.origin}/addfaculty`,
+        `https://studentfeedback-backend.onrender.com/addfaculty`,
         facultyData,
         {
           headers: {

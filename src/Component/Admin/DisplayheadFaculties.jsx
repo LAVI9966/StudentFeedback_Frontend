@@ -7,7 +7,9 @@ const DisplayheadFaculties = () => {
   useEffect(() => {
     const fetch = async () => {
       try {
-        const response = await axios.get(`${window.location.origin}/fetchhead`);
+        const response = await axios.get(
+          `https://studentfeedback-backend.onrender.com/fetchhead`
+        );
         setheadlist(response.data);
       } catch (error) {
         console.error("Error fetching head faculties:", error);
@@ -18,7 +20,9 @@ const DisplayheadFaculties = () => {
 
   const handleDelete = async (facultyId) => {
     try {
-      await axios.delete(`${window.location.origin}/deletehead/${facultyId}`);
+      await axios.delete(
+        `https://studentfeedback-backend.onrender.com/deletehead/${facultyId}`
+      );
       setheadlist(headList.filter((faculty) => faculty._id !== facultyId));
       toast.success("Faculty Head Added Successfully!", {
         position: "top-right",
