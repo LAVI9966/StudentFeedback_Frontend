@@ -39,7 +39,6 @@ const Adminhome = () => {
             </div>
           </div>
         </div>
-        <RatingsDisplay></RatingsDisplay>;
       </div>
     </Container>
   );

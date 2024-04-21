@@ -90,6 +90,14 @@ const SubmitRatingPageFaculty = () => {
         theme: "colored",
         transition: Bounce,
       });
+      const maildata = {
+        facultyId: facultyId,
+      };
+      console.log("mail data", maildata);
+      const mail = await axios.post(
+        `http://localhost:8080/sendmailfaculty`,
+        maildata
+      );
     } catch (error) {
       console.log(error.message);
       if (error.response.status === 400) {

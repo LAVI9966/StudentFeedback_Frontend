@@ -89,6 +89,11 @@ const SubmitRatingPage = () => {
         theme: "colored",
         transition: Bounce,
       });
+      const maildata = {
+        courseId: courseId,
+      };
+      console.log("mail data", maildata);
+      const mail = await axios.post(`http://localhost:8080/sendmail`, maildata);
     } catch (error) {
       console.log(error.message);
       if (error.response.status === 400) {

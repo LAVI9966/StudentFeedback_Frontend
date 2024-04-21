@@ -5,7 +5,10 @@ import Container from "../../Container";
 import axios from "axios";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import CircularProgress from '@material-ui/core/CircularProgress';
 const Login = () => {
+  const [isLoading, setisLoading] = useState(false);
+
   const navigation = useNavigate();
   const [formData, setFormdata] = useState({
     role: "",
@@ -33,6 +36,7 @@ const Login = () => {
       return;
     }
     console.log(formData);
+    setisLoading(true);
     try {
       const response = await axios.post(
         `https://studentfeedback-backend.onrender.com/login`,
@@ -63,12 +67,14 @@ const Login = () => {
         console.log("Error", error.message);
         toast.error("An error occurred during signup.");
       }
+    } finally {
+      setisLoading(false);
     }
   };
   return (
     <>
       <Container>
-        <div className="container h-100 custom-padding">
+        <div className="container h-100 mt-5 mb-0 custom-padding">
           <div className="row justify-content-center align-items-center ">
             <div className="col-md-4">
               <div className="card shadow">
@@ -126,10 +132,17 @@ const Login = () => {
                       type="submit"
                       className="btn btn-primary btn-block mt-2"
                       style={{ width: "100%" }}
+                      disabled={isLoading}
                     >
                       Submit
                     </button>
                   </form>
+                  {isLoading && (
+                    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+                      <CircularProgress />
+                    </div>
+                  )}
+
                 </div>
               </div>
             </div>

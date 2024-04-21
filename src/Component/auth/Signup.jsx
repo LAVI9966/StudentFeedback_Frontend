@@ -5,7 +5,11 @@ import Container from "../../Container";
 import { ToastContainer, Bounce, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 const Signup = () => {
+  const [isLoading, setisLoading] = useState(false);
+
   const navigation = useNavigate();
   const [formData, setFormdata] = useState({
     role: "",
@@ -43,6 +47,7 @@ const Signup = () => {
       return;
     }
     if (formData.role === "student") {
+      setisLoading(true);
       try {
         const response = await axios.post(
           `https://studentfeedback-backend.onrender.com/signup`,
@@ -70,8 +75,11 @@ const Signup = () => {
           console.log("Error", error.message);
           toast.error("An error occurred during signup.");
         }
+      } finally {
+        setisLoading(false);
       }
     } else if (formData.role === "admin") {
+      setisLoading(true);
       try {
         const datatosend = {
           role: formData.role,
@@ -83,9 +91,12 @@ const Signup = () => {
           `https://studentfeedback-backend.onrender.com/signup`,
           datatosend
         );
-        toast("Yessss! You are Registered");
+        toast("Yesss! Registered");
         console.log(response);
+        localStorage.setItem("authToken", response.data.token);
         navigation("/adminhome");
+        const t = localStorage.getItem("authToken");
+        console.log(t);
       } catch (error) {
         console.log(error.message);
         if (error.response.status === 422) {
@@ -101,6 +112,8 @@ const Signup = () => {
           console.log("Error", error.message);
           toast.error("An error occurred during signup.");
         }
+      } finally {
+        setisLoading(false);
       }
     }
   };
@@ -205,10 +218,16 @@ const Signup = () => {
                       type="submit"
                       className="btn btn-primary btn-block mt-2"
                       style={{ width: "100%" }}
+                      disabled={isLoading}
                     >
                       Submit
                     </button>
                   </form>
+                  {isLoading && (
+                    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+                      <CircularProgress />
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

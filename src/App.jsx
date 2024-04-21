@@ -26,6 +26,7 @@ import SubmitRatingPageFaculty from "./Component/Student/SubmitRatingPageFaculty
 import CourseRatingshow from "./Component/Faculty/CourseRatingshow";
 import FacultyRatingshow from "./Component/Faculty/FacultyRatingShow";
 import GetStart from "./GetStart";
+import Profile from "./Component/Admin/Profile";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -40,6 +41,10 @@ function App() {
           <Route
             path="/courselist"
             element={<Protected Component={CourseList} />}
+          ></Route>
+          <Route
+            path="/profile/:role"
+            element={<Protected Component={Profile} />}
           ></Route>
           <Route
             path="/submitratingpage/:courseId"
