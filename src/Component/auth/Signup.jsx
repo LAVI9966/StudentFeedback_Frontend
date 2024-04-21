@@ -5,7 +5,6 @@ import Container from "../../Container";
 import { ToastContainer, Bounce, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
-import CircularProgress from '@mui/material/CircularProgress';
 
 const Signup = () => {
   const [isLoading, setisLoading] = useState(false);
@@ -225,7 +224,7 @@ const Signup = () => {
                   </form>
                   {isLoading && (
                     <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
-                      <CircularProgress />
+                      huihui
                     </div>
                   )}
                 </div>
