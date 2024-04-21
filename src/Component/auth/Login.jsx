@@ -5,6 +5,9 @@ import Container from "../../Container";
 import axios from "axios";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { DNA } from 'react-loader-spinner'
+
+
 const Login = () => {
   const [isLoading, setisLoading] = useState(false);
 
@@ -138,7 +141,14 @@ const Login = () => {
                   </form>
                   {isLoading && (
                     <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
-                      huihui
+                      <DNA
+                        visible={true}
+                        height="80"
+                        width="80"
+                        ariaLabel="dna-loading"
+                        wrapperStyle={{}}
+                        wrapperClass="dna-wrapper"
+                      />
                     </div>
                   )}
 
