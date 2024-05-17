@@ -125,13 +125,13 @@ const Navbar = () => {
                 </Link>
               </li>
             )}
-            {role !== "none" && (
+            {/*role !== "none" && (
               <li className="nav-item">
                 <Link to={`/profile/${role}`} className="btn text-light">
                   Profile
                 </Link>
               </li>
-            )}
+            )*/}
           </ul>
         </div>
       </div>
